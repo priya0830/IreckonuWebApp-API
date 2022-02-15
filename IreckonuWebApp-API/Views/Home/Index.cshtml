@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string message = "";
+    if(ViewData["Message"] != null)
+    {
+        message = ViewData["Message"].ToString();
+    }
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+    <label class="alert" style="color:red">@message</label>
+
+@using (Html.BeginForm("GetData", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <button type="submit">Import DataFile</button>
+}
